@@ -9,3 +9,15 @@ function isNumeric(str) {
     firstNumber !== null
   );
 }
+
+if (!isNumeric(firstNumber)) {
+  console.log("Некорректный ввод!");
+} else if (!isNumeric(secondNumber)) {
+  console.log("Некорректный ввод!");
+} else {
+  alert(
+    `Ответ: ${(+firstNumber + +secondNumber).toFixed(3)}, ${(
+      +firstNumber / +secondNumber
+    ).toFixed(3)}`
+  );
+}
