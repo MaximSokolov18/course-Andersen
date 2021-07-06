@@ -9,3 +9,9 @@ function isNumeric(str) {
     firstNumber !== null
   );
 }
+
+if (isNumeric(firstNumber) && isNumeric(secondNumber)) {
+  alert((+firstNumber).toString(+secondNumber));
+} else {
+  alert("Некорректный ввод!");
+}
