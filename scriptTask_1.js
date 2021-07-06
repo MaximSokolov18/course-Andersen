@@ -11,7 +11,7 @@ function isNumeric(str) {
 }
 
 if (isNumeric(firstNumber) && isNumeric(secondNumber)) {
-  alert((+firstNumber).toString(+secondNumber));
+  console.log((+firstNumber).toString(+secondNumber));
 } else {
-  alert("Некорректный ввод!");
+  console.log("Некорректный ввод!");
 }
