@@ -2,7 +2,7 @@ let firstNumber = prompt("Enter the first number", " ");
 let secondNumber = prompt("Enter the second number", " ");
 
 function isNumeric(str) {
-  return +str === +str && str !== "" && str !== " " && str !== null;
+  return !isNaN(str) && !isNaN(parseFloat(str));
 }
 
 if (isNumeric(firstNumber) && isNumeric(secondNumber)) {
