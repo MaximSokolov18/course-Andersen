@@ -10,7 +10,7 @@ if (!isNumeric(firstNumber)) {
 } else if (!isNumeric(secondNumber)) {
   console.log("Некорректный ввод!");
 } else {
-  alert(
+  console.log(
     `Ответ: ${(+firstNumber + +secondNumber).toFixed(3)}, ${(
       +firstNumber / +secondNumber
     ).toFixed(3)}`
