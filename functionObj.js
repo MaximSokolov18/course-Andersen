@@ -23,3 +23,7 @@ export const isEmpty = (object) => {
     return true;
   }
 };
+
+export const makePairs = (object) => {
+  return Object.entries(object);
+};
