@@ -1,14 +1,13 @@
 export const isEqual = (firstObj, secondObj) => {
-  return JSON.stringify(firstObj) === JSON.stringify(secondObj);
-};
+  const firstValues = Object.values(firstObj);
+  const secondValues = Object.values(secondObj);
 
-function isValid(value) {
-  if (!value && value !== 0) {
+  if (firstValues.length !== secondValues.length) {
     return false;
   }
 
-  return true;
-}
+  return !firstValues.some((item, index) => item !== secondValues[index]);
+};
 
 export const isEmpty = (object) => {
   const arrayValues = Object.values(object);
@@ -17,13 +16,11 @@ export const isEmpty = (object) => {
     return true;
   }
 
-  if (arrayValues.some((item) => isValid(item))) {
-    return false;
-  } else {
-    return true;
-  }
+  return !arrayValues.some((item) => !!item && item !== 0);
 };
 
 export const makePairs = (object) => {
-  return Object.entries(object);
+  const arrayValues = Object.values(object);
+  const arrayKeys = Object.keys(object);
+  return arrayKeys.map((item, index) => [item, arrayValues[index]]);
 };
