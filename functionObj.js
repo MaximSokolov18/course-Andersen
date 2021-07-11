@@ -20,7 +20,5 @@ export const isEmpty = (object) => {
 };
 
 export const makePairs = (object) => {
-  const arrayValues = Object.values(object);
-  const arrayKeys = Object.keys(object);
-  return arrayKeys.map((item, index) => [item, arrayValues[index]]);
+  return Object.keys(object).map((item) => [item, object[item]]);
 };
