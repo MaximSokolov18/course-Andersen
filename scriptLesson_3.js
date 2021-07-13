@@ -1,12 +1,13 @@
 function chekPalindrome(str) {
   const editStr = str
+    .toLowerCase()
     .split('')
     .filter((litter) => litter !== ' ' && litter !== ',');
   return editStr.join('') === editStr.reverse().join('');
 }
 
 function getNumberVowels(str) {
-  const vowels = ['a', 'u', 'i', 'o', 'e'];
+  const vowels = ['a', 'u', 'i', 'o', 'e', 'A', 'U', 'I', 'O', 'E'];
   return str.split('').filter((litter) => vowels.includes(litter)).length;
 }
 
