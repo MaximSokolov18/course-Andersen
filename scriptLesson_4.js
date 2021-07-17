@@ -15,3 +15,14 @@ function objectHell(str) {
 
   return obj;
 }
+
+function createDebounceFunction(fun, time) {
+  let timeout;
+  return function () {
+    const callFun = () => fun.apply(this, arguments);
+
+    clearTimeout(timeout);
+
+    timeout = setTimeout(callFun, time);
+  };
+}
