@@ -26,3 +26,9 @@ function createDebounceFunction(fun, time) {
     timeout = setTimeout(callFun, time);
   };
 }
+
+function myBind(fun, thisArg, ...rest) {
+  return function (...args) {
+    return fun.apply(thisArg, rest.concat(args));
+  };
+}
