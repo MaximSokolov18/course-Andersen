@@ -19,5 +19,3 @@ Function.prototype.myBind = function (context, ...args1) {
     return fn.apply(context, [...args1, ...args2]);
   };
 };
-
-console.log(objectHell('b.v.d'));
