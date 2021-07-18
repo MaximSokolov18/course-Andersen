@@ -1,14 +1,5 @@
 function objectHell(str) {
-  return str.split('.').reduceRight((prev, item, index, arr) => {
-    if (index === arr.length - 1) {
-      prev[item] = null;
-      return prev;
-    }
-    const last = prev;
-    prev = {};
-    prev[item] = last;
-    return prev;
-  }, {});
+  return str.split('.').reduceRight((obj, next) => ({ [next]: obj }), null);
 }
 
 function createDebounceFunction(func, time) {
