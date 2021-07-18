@@ -1,16 +1,14 @@
 function objectHell(str) {
-  let obj = {};
-  str
-    .split('.')
-    .reverse()
-    .reduceRight((obj, item, index) => {
-      if (index === 0) {
-        return (obj[item] = null);
-      }
-      return (obj[item] = {});
-    }, obj);
-
-  return obj;
+  return str.split('.').reduceRight((prev, item, index, arr) => {
+    if (index === arr.length - 1) {
+      prev[item] = null;
+      return prev;
+    }
+    const last = prev;
+    prev = {};
+    prev[item] = last;
+    return prev;
+  }, {});
 }
 
 function createDebounceFunction(func, time) {
@@ -30,3 +28,5 @@ Function.prototype.myBind = function (context, ...args1) {
     return fn.apply(context, [...args1, ...args2]);
   };
 };
+
+console.log(objectHell('b.v.d'));
