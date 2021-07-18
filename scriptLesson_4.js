@@ -3,20 +3,17 @@ function objectHell(str) {
   str
     .split('.')
     .reverse()
-    .forEach((item, index) => {
+    .reduceRight((obj, item, index) => {
       if (index === 0) {
-        obj[item] = null;
-        return;
+        return (obj[item] = null);
       }
-      const last = obj;
-      obj = {};
-      obj[item] = last;
-    });
+      return (obj[item] = {});
+    }, obj);
 
   return obj;
 }
 
-function createDebounceFunction(fun, time) {
+function createDebounceFunction(func, time) {
   let timeout;
   return function () {
     const callFun = () => fun.apply(this, arguments);
@@ -27,8 +24,9 @@ function createDebounceFunction(fun, time) {
   };
 }
 
-function myBind(fun, thisArg, ...rest) {
-  return function (...args) {
-    return fun.apply(thisArg, rest.concat(args));
+Function.prototype.myBind = function (context, ...args1) {
+  const fn = this;
+  return function (...args2) {
+    return fn.apply(context, [...args1, ...args2]);
   };
-}
+};
