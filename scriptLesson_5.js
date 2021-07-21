@@ -54,3 +54,26 @@ button.click();
 // 2)Listener 2
 // 3)Microtask 1
 // 4)Microtask 2
+
+function fakeRequest(url) {
+  return new Promise((res, rej) => {
+    const delayTime = Math.floor(Math.random() * 10000) + 1;
+
+    setTimeout(() => res(url), delayTime);
+  });
+}
+
+function resolveUrls(urls) {
+  const promisesArray = urls.map((url) => fakeRequest(url));
+  const result = [];
+  return new Promise((resolve) => {
+    promisesArray.forEach((promis) => {
+      promis.then((res) => {
+        result.push(res);
+        if (result.length === promisesArray.length) {
+          resolve(result);
+        }
+      });
+    });
+  });
+}
