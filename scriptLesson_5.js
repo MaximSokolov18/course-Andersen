@@ -64,16 +64,20 @@ function fakeRequest(url) {
 }
 
 function resolveUrls(urls) {
-  const promisesArray = urls.map((url) => fakeRequest(url));
   const result = [];
   return new Promise((resolve) => {
-    promisesArray.forEach((promis) => {
-      promis.then((res) => {
-        result.push(res);
-        if (result.length === promisesArray.length) {
-          resolve(result);
-        }
-      });
+    urls.forEach((url) => {
+      const promis = fakeRequest(url);
+      promis
+        .then((res) => {
+          result.push(res);
+          if (result.length === urls.length) {
+            resolve(result);
+          }
+        })
+        .catch((error) => {
+          reject(error);
+        });
     });
   });
 }
