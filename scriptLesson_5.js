@@ -70,8 +70,7 @@ function resolveUrls(urls) {
   const result = [];
   return new Promise((resolve) => {
     urls.forEach((url) => {
-      const promis = fakeRequest(url);
-      promis
+      fakeRequest(url)
         .then((res) => {
           result.push(res);
           if (result.length === urls.length) {
