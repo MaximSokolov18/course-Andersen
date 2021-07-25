@@ -87,7 +87,7 @@ function SecondDefaultUser(name, isAdmine, age) {
 }
 
 SecondDefaultUser.prototype = Object.create(SecondUser.prototype);
-SecondAdmine.prototype.constructor = SecondAdmine;
+SecondDefaultUser.prototype.constructor = SecondDefaultUser;
 
 SecondDefaultUser.prototype.getIsAdmine = function () {
   return 'Admin information is not available';
