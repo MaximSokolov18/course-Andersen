@@ -100,3 +100,56 @@ SecondDefaultUser.prototype.getName = function () {
 SecondDefaultUser.prototype.getAge = function () {
   return this.age;
 };
+
+class ThirdUser {
+  constructor(name, isAdmine) {
+    this.name = name;
+    this.isAdmine = isAdmine;
+  }
+
+  getName() {
+    return this.name;
+  }
+
+  getIsAdmine() {
+    return this.isAdmine;
+  }
+}
+
+class ThirdAdmine extends ThirdUser {
+  constructor(name, isAdmine, age) {
+    super(name, isAdmine);
+    this.age = age;
+  }
+
+  getIsAdmine() {
+    return `${super.getIsAdmine()} is admine`;
+  }
+
+  getName() {
+    return 'Username is classified';
+  }
+
+  getStrAgeUser() {
+    return `Age ${super.getIsAdmine()}: ${this.age}`;
+  }
+}
+
+class ThirdDefaultUser extends ThirdUser {
+  constructor(name, isAdmine, age) {
+    super(name, isAdmine);
+    this.age = age;
+  }
+
+  getIsAdmine() {
+    return 'Admin information is not available';
+  }
+
+  getName() {
+    return `User name: ${super.getName()}`;
+  }
+
+  getAge() {
+    return this.age;
+  }
+}
