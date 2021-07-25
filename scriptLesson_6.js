@@ -12,10 +12,10 @@ function FirstUser(name, isAdmine) {
   };
 }
 
-function FirstAdmine(name, isAdmine) {
+function FirstAdmine(name, isAdmine, age) {
   FirstUser.apply(this, arguments);
   const getAdmine = this.getIsAdmine;
-  this.age = 18;
+  this.age = age;
 
   this.getIsAdmine = function () {
     return `${getAdmine()} is admine`;
@@ -30,10 +30,10 @@ function FirstAdmine(name, isAdmine) {
   };
 }
 
-function FirstDefaultUser(name, isAdmine) {
+function FirstDefaultUser(name, isAdmine, age) {
   FirstUser.apply(this, arguments);
   const getNameUser = this.getName;
-  this.age = 24;
+  this.age = age;
 
   this.getName = function () {
     return `User name: ${getNameUser()}`;
@@ -61,13 +61,13 @@ SecondUser.prototype.getIsAdmine = function () {
   return this.isAdmine;
 };
 
-function SecondAdmine(name, isAdmine) {
-  this.name = name;
-  this.isAdmine = isAdmine;
-  this.age = 19;
+function SecondAdmine(name, isAdmine, age) {
+  SecondUser.apply(this, arguments);
+  this.age = age;
 }
 
 SecondAdmine.prototype = Object.create(SecondUser.prototype);
+SecondAdmine.prototype.constructor = SecondAdmine;
 
 SecondAdmine.prototype.getIsAdmine = function () {
   return `${SecondUser.prototype.getIsAdmine.call(this)} is admine`;
@@ -81,13 +81,13 @@ SecondAdmine.prototype.getStrAgeUser = function () {
   return `Age: ${this.age}`;
 };
 
-function SecondDefaultUser(name, isAdmine) {
-  this.name = name;
-  this.isAdmine = isAdmine;
-  this.age = 49;
+function SecondDefaultUser(name, isAdmine, age) {
+  SecondUser.apply(this, arguments);
+  this.age = age;
 }
 
 SecondDefaultUser.prototype = Object.create(SecondUser.prototype);
+SecondAdmine.prototype.constructor = SecondAdmine;
 
 SecondDefaultUser.prototype.getIsAdmine = function () {
   return 'Admin information is not available';
