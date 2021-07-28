@@ -22,6 +22,21 @@ const dataCitiesArray = [
   },
 ];
 
+function showDataWeather(weather) {
+  const date = new Date(Number(`${weather.dt}000`));
+  console.log(
+    `\u23A2 Date: ${date
+      .toString()
+      .slice(4, 11)} \u23A2  \u23A2 Temp (max/min): ${Math.round(
+      weather.temp.max
+    )}\u2103/${Math.round(weather.temp.min)} \u2103 \u23A2  \u23A2 Weather: ${
+      weather.weather[0].description
+    } \u23A2  \u23A2 Wind: ${weather.wind_speed}m/s \u23A2  \u23A2 Humidity: ${
+      weather.humidity
+    }% \u23A2`
+  );
+}
+
 function weatherRequest(dataCity) {
   fetch(
     `https://api.openweathermap.org/data/2.5/onecall?lat=${dataCity.coord.lat}&lon=${dataCity.coord.lon}&exclude=hourly,minutely,alerts&units=metric&appid=${API_KEY}`
