@@ -37,7 +37,9 @@ function showDataWeather(weather) {
 
 function weatherRequest(dataCity) {
   fetch(
-    `https://api.openweathermap.org/data/2.5/onecall?lat=${dataCity.coord.lat}&lon=${dataCity.coord.lon}&exclude=hourly,minutely,alerts&units=metric&appid=${API_KEY}`
+    `https://api.openweathermap.org/data/2.5/onecall?lat=${dataCity.coord.lat}
+    &lon=${dataCity.coord.lon}&exclude=hourly,minutely,alerts
+    &units=metric&appid=${API_KEY}`
   )
     .then((response) => {
       if (response.ok) {
@@ -51,7 +53,9 @@ function weatherRequest(dataCity) {
     .then((arrDataWeather) => {
       const weatherNow = arrDataWeather.current;
       console.log(
-        `Country: ${dataCity.country}\nCity: ${dataCity.name}\nWeather now: ${weatherNow.temp}\u2103 ${weatherNow.weather[0].description}, wind speed ${weatherNow.wind_speed}m/s`
+        `Country: ${dataCity.country}\nCity: ${dataCity.name}\n
+        Weather now: ${weatherNow.temp}\u2103 ${weatherNow.weather[0].description}, 
+        wind speed ${weatherNow.wind_speed}m/s`
       );
       arrDataWeather.daily
         .filter((item, index) => index < 4)
