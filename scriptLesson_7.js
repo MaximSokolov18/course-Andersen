@@ -1,4 +1,5 @@
 const API_KEY = '5e4a694c6379ad3ea4353dcff926b2ae';
+const WEATHER_URL = 'https://api.openweathermap.org/';
 const dataCitiesArray = [
   {
     id: 710791,
@@ -23,7 +24,7 @@ const dataCitiesArray = [
 ];
 
 function showDataWeather(weather) {
-  const date = new Date(Number(`${weather.dt}000`)).toDateString();
+  const date = new Date(weather.dt * 1000).toDateString();
   console.log(
     `\u23A2 Date: ${date} \u23A2  \u23A2 Temp (max/min): ${Math.round(
       weather.temp.max
@@ -37,24 +38,17 @@ function showDataWeather(weather) {
 
 function weatherRequest(dataCity) {
   fetch(
-    `https://api.openweathermap.org/data/2.5/onecall?lat=${dataCity.coord.lat}&lon=${dataCity.coord.lon}&exclude=hourly,minutely,alerts&units=metric&appid=${API_KEY}`
+    `${WEATHER_URL}data/2.5/onecall?lat=${dataCity.coord.lat}&lon=${dataCity.coord.lon}&exclude=hourly,minutely,alerts&units=metric&appid=${API_KEY}`
   )
-    .then((response) => {
-      if (response.ok) {
-        return response.json();
-      }
-
-      return console.log(
-        `Network request failed with response ${response.status}:${response.statusText}`
-      );
-    })
+    .then((response) => response.json())
     .then((arrDataWeather) => {
       const weatherNow = arrDataWeather.current;
+      const NUMBER_DAY = 4;
       console.log(
         `Country: ${dataCity.country}\nCity: ${dataCity.name}\nWeather now: ${weatherNow.temp}\u2103 ${weatherNow.weather[0].description}, wind speed ${weatherNow.wind_speed}m/s`
       );
       arrDataWeather.daily
-        .filter((item, index) => index < 4)
+        .slice(0, NUMBER_DAY)
         .forEach((weather) => showDataWeather(weather));
     })
     .catch((error) => {
