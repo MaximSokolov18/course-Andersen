@@ -37,9 +37,7 @@ function showDataWeather(weather) {
 
 function weatherRequest(dataCity) {
   fetch(
-    `https://api.openweathermap.org/data/2.5/onecall?lat=${dataCity.coord.lat}
-    &lon=${dataCity.coord.lon}&exclude=hourly,minutely,alerts
-    &units=metric&appid=${API_KEY}`
+    `https://api.openweathermap.org/data/2.5/onecall?lat=${dataCity.coord.lat}&lon=${dataCity.coord.lon}&exclude=hourly,minutely,alerts&units=metric&appid=${API_KEY}`
   )
     .then((response) => {
       if (response.ok) {
