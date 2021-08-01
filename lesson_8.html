@@ -4,9 +4,76 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="./styleLesson_8.css" rel="stylesheet" type="text/css" />
     <title>Document</title>
   </head>
   <body>
+    <div class="conteiner">
+      <div class="calculator">
+        <div class="calculator__InOut-block" id="InOut-block">
+          <div class="calculator__output">
+            <p class="calculator__past-action"></p>
+            <h1 class="calculator__real-action">0</h1>
+          </div>
+          <div class="calculator__buttons">
+            <div class="calc-row" id="calculator__row-one">
+              <button class="operator" id="button-CE"><h2>CE</h2></button>
+              <button class="operator" id="button-C"><h2>C</h2></button>
+              <button class="operator" id="button-erase">
+                <h2>&#8656;</h2>
+              </button>
+              <button class="input-char calc-action" id="button-division">
+                <h2>/</h2>
+              </button>
+            </div>
+            <div class="calc-row" id="calculator__row-two">
+              <button class="input-char" id="button-seven"><h2>7</h2></button>
+              <button class="input-char" id="button-eight"><h2>8</h2></button>
+              <button class="input-char" id="button-nine"><h2>9</h2></button
+              ><button
+                class="input-char calc-action"
+                id="button-multiplication"
+              >
+                <h2>*</h2>
+              </button>
+            </div>
+            <div class="calc-row" id="calculator__row-three">
+              <button class="input-char" id="button-four"><h2>4</h2></button>
+              <button class="input-char" id="button-five"><h2>5</h2></button>
+              <button class="input-char" id="button-six"><h2>6</h2></button>
+              <button class="input-char calc-action" id="button-minus">
+                <h2>-</h2>
+              </button>
+            </div>
+            <div class="calc-row" id="calculator__row-four">
+              <button class="input-char" id="button-one"><h2>1</h2></button>
+              <button class="input-char" id="button-two"><h2>2</h2></button>
+              <button class="input-char" id="button-three"><h2>3</h2></button>
+              <button class="input-char calc-action" id="button-plus">
+                <h2>+</h2>
+              </button>
+            </div>
+            <div class="calc-row" id="calculator__row-five">
+              <button class="input-char" id="button-sign">
+                <h2>-</h2>
+              </button>
+              <button class="input-char" id="button-zero"><h2>0</h2></button>
+              <button class="input-char" id="button-comma"><h2>.</h2></button>
+              <button class="operator" id="button-equal"><h2>&#61;</h2></button>
+            </div>
+          </div>
+        </div>
+        <div class="calculator__register" id="calc-journal">
+          <div class="calculator__journal">
+            <ul class="journalCalc" id="calcJurnal"></ul>
+          </div>
+          <button class="journal-clear" id="button-clear">
+            <h2>&#128465;</h2>
+          </button>
+        </div>
+      </div>
+    </div>
+
     <script src="./scriptLesson_8.js"></script>
   </body>
 </html>
