@@ -94,7 +94,7 @@ p {
 }
 
 .calculator .calculator__InOut-block#InOut-block {
-  flex-grow: 3;
+  flex: 3 3 500px;
 }
 
 .calculator__output {
@@ -114,7 +114,7 @@ p {
   display: flex;
   align-items: stretch;
   flex-direction: column;
-  flex-grow: 1;
+  flex: 1 1 200px;
 }
 
 .calculator .calculator__register button#button-clear {
