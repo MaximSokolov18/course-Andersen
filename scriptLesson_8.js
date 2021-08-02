@@ -40,10 +40,8 @@ function addActionToJournal(pastAction, result) {
 
 function clearJournal() {
   const list = document.getElementsByClassName('actionCalc');
-
-  for (let i = list.length - 1; i >= 0; i--) {
-    list[i].remove();
-  }
+  const arrList = [...list];
+  arrList.forEach((li) => li.remove());
 }
 
 function repeatedAction(dataOutput) {
@@ -118,15 +116,20 @@ function clickKeyCalc(event) {
 
   if (target.className === 'input-char') {
     addChar(char);
-  } else if (target.id === 'button-erase') {
+  }
+  if (target.id === 'button-erase') {
     subtractOneChar();
-  } else if (target.className === 'input-char calc-action') {
+  }
+  if (target.className === 'input-char calc-action') {
     addOneAction(char);
-  } else if (target.id === 'button-equal') {
+  }
+  if (target.id === 'button-equal') {
     solutionExpression();
-  } else if (target.id === 'button-CE') {
+  }
+  if (target.id === 'button-CE') {
     clearTitleCalc();
-  } else if (target.id === 'button-C') {
+  }
+  if (target.id === 'button-C') {
     clearAllTitle();
   }
 }
