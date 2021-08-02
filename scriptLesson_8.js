@@ -4,7 +4,9 @@ function addChar(char) {
 
   if (strTitle === '0' && char !== '.') {
     titleCalc[0].innerText = '';
-  } else if (
+  }
+
+  if (
     (strTitle.includes('.') && char === '.') ||
     (strTitle.includes('-') && char === '-')
   ) {
@@ -116,20 +118,15 @@ function clickKeyCalc(event) {
 
   if (target.className === 'input-char') {
     addChar(char);
-  }
-  if (target.id === 'button-erase') {
+  } else if (target.id === 'button-erase') {
     subtractOneChar();
-  }
-  if (target.className === 'input-char calc-action') {
+  } else if (target.className === 'input-char calc-action') {
     addOneAction(char);
-  }
-  if (target.id === 'button-equal') {
+  } else if (target.id === 'button-equal') {
     solutionExpression();
-  }
-  if (target.id === 'button-CE') {
+  } else if (target.id === 'button-CE') {
     clearTitleCalc();
-  }
-  if (target.id === 'button-C') {
+  } else if (target.id === 'button-C') {
     clearAllTitle();
   }
 }
